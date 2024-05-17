@@ -6,10 +6,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\View;
 
 class AuthController extends Controller
 {
-
 
     public function login(Request $request)
     {
@@ -28,6 +28,13 @@ class AuthController extends Controller
         }
 
         $user = Auth::user();
+
+
+        // return redirect()->route('dashboard');
+
+
+        // // Handle invalid login credentials and redirect back to the login page
+        // //return redirect()->back()->withInput()->withErrors(['login' => 'Invalid login credentials']);
         return response()->json([
             'status' => 'success',
             'user' => $user,
@@ -83,5 +90,15 @@ class AuthController extends Controller
                 'type' => 'bearer',
             ]
         ]);
+    }
+
+    public function showLoginForm()
+    {
+        return view('login');
+    }
+
+    public function showRegistrationForm()
+    {
+        return View::make('auth.register');
     }
 }
