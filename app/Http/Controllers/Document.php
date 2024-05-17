@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Traits\ResponseTrait;
 
 class Document extends Controller
 {
+    use ResponseTrait;
     /**
      * Display a listing of the resource.
      */

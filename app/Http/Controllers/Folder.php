@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Traits\ResponseTrait;
 use Illuminate\Http\Request;
+use App\Http\Helpers\CacheHelper;
+use App\Http\Traits\ResponseTrait;
+use Illuminate\Support\Facades\Log;
+use App\Http\Resources\FolderResource;
 
 class Folder extends Controller
 {
@@ -13,7 +16,15 @@ class Folder extends Controller
      */
     public function index()
     {
-        //
+        // try {
+        //     $folders = CacheHelper::getCachedData('folders', function () {
+        //         return Folder::with('documents')->get();
+        //     }); 
+        //     return $this->jsonResponse(FolderResource::collection($folders), 'Success', 200);
+        // } catch (\Throwable $th) {
+        //     Log::error($th);
+        //     return $this->jsonResponse(null, "Failed", 400);
+        // }
     }
 
     /**
