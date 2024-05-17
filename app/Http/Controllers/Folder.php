@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Traits\ResponseTrait;
 use Illuminate\Http\Request;
 
 class Folder extends Controller
 {
+    use ResponseTrait;
     /**
      * Display a listing of the resource.
      */
